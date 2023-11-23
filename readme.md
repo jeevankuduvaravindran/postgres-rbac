@@ -14,5 +14,5 @@ This project is to run a powershell script from docker container.
 
 Below the example execution command for the container built with the image.
 ```
-docker run -e GIT_REPO_URL=https://github.com/jeevankuduvaravindran/postgres-rbac.git -e SCRIPT_FILE_NAME=postgres-rbac/scripts/script.ps1 -e PARAMS=x=1,y=2 powershell-runner:dev 
+docker run -e GIT_REPO_URL=https://github.com/jeevankuduvaravindran/powershell-runner-docker.git -e SCRIPT_FILE_NAME=powershell-runner-docker/scripts/script.ps1 -e PARAMS=x=1,y=2 powershell-runner:dev
 ```

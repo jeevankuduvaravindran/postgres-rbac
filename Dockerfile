@@ -11,4 +11,4 @@ RUN apt-get update && apt-get install -y git
 SHELL ["pwsh", "-Command"]
 
 # Clone the repo and Run the powershell script and pass the params to it
-CMD git clone $env:GIT_REPO_URL; $paramsCmd="-Params `"$env:PARAMS`""; $cmd ="pwsh -File $env:SCRIPT_FILE_NAME $params"; Invoke-Expression $cmd
+CMD git clone $env:GIT_REPO_URL; $paramsArg="-Params `"$env:PARAMS`""; $cmd ="pwsh -File $env:SCRIPT_FILE_NAME $paramsArg"; Invoke-Expression $cmd
