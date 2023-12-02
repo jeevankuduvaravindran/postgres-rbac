@@ -16,9 +16,10 @@ RUN apt install -y -f postgresql postgresql-contrib
 # Change default shell to powershell
 SHELL ["pwsh", "-Command"]
 
+RUN pwsh -Command Install-Module -Name Az -Repository PSGallery -Force -AllowClobber
+
 # Clone the repo and Run the powershell script and pass the params to it
 CMD git clone $env:GIT_REPO_URL; $paramsArg="-Params `"$env:PARAMS`""; $cmd ="pwsh -File $env:SCRIPT_FILE_NAME $paramsArg"; Invoke-Expression $cmd
-RUN pwsh -Command Install-Module -Name Az -Repository PSGallery -Force -AllowClobber
 
 # Copy scripts and set permissions
 # COPY ./scripts /scripts
