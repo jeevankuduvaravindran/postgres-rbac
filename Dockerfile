@@ -19,7 +19,7 @@ SHELL ["pwsh", "-Command"]
 RUN pwsh -Command Install-Module -Name Az -Repository PSGallery -Force -AllowClobber
 
 # Clone the repo and Run the powershell script and pass the params to it
-CMD git clone $env:GIT_REPO_URL; $paramsArg="-Params `"$env:PARAMS`""; $cmd ="pwsh -File $env:SCRIPT_FILE_NAME $paramsArg"; Invoke-Expression $cmd
+CMD echo $env:GIT_REPO_URL; echo $env:SCRIPT_FILE_NAME; git clone $env:GIT_REPO_URL; $paramsArg="-Params `"$env:PARAMS`""; $cmd ="pwsh -File $env:SCRIPT_FILE_NAME $paramsArg"; Invoke-Expression $cmd
 
 # Copy scripts and set permissions
 # COPY ./scripts /scripts
